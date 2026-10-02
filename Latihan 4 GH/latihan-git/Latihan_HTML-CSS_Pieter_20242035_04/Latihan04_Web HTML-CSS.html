@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Web03</title>
+  <style>
+    /* ===== RESET & DASAR ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #000;
+      background: #fff;
+    }
+
+    /* ===== PEMBUNGKUS HALAMAN (lebar mengikuti gambar contoh) ===== */
+    .page {
+      width: 100%;
+      max-width: 480px;
+      margin: 20px auto;
+      border: 1px solid #b0a090;
+    }
+
+    /* Setiap section punya garis pemisah tipis seperti di gambar */
+    .section {
+      border-top: 1px solid #b0a090;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #ffe6cc;
+      height: 72px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      width: 54px;
+      height: 54px;
+      border: 1px solid #000;
+      border-radius: 50%;            /* bentuk lingkaran */
+      background: #fff;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      align-self: flex-end;          /* menu berada di bawah, sejajar gambar */
+      padding-bottom: 12px;
+    }
+
+    .nav a {
+      font-size: 10px;
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: #dae8fc;
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-text {
+      font-size: 10px;
+      text-align: center;
+    }
+
+    /* ===== KOTAK JUDUL SECTION (Services / About / Contact) ===== */
+    .title-box {
+      width: 96px;
+      height: 46px;
+      background: #fff;
+      border: 1px solid #000;
+      border-radius: 10px;           /* sudut membulat */
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    /* ===== SERVICES ===== */
+    .services {
+      background: #fff2cc;
+      padding: 20px 20px 24px;
+    }
+
+    .columns-3 {
+      display: flex;                 /* 3 kolom sejajar */
+      gap: 18px;
+      margin-top: 34px;
+      padding: 0 4px;
+    }
+
+    .columns-3 .col {
+      flex: 1;
+    }
+
+    .heading {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .text {
+      font-size: 10px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: #e1d5e7;
+      padding: 20px 20px 24px;
+    }
+
+    .about-intro {
+      font-size: 10px;
+      margin: 34px 0 22px;
+      text-align: center;
+    }
+
+    .columns-2 {
+      display: flex;                 /* 2 kolom: Heading | Performance */
+      gap: 36px;
+      padding-left: 6px;
+    }
+
+    .columns-2 .col:first-child {
+      width: 38%;
+    }
+
+    .columns-2 .col:last-child {
+      flex: 1;
+    }
+
+    .columns-2 .heading {
+      font-size: 18px;
+    }
+
+    /* ===== BENTUK GELOMBANG (PERFORMANCE) =====
+       Dibuat dengan SVG path (garis tepi + isi putih) */
+    .wave-wrap {
+      width: 110px;
+      height: 50px;
+    }
+
+    .wave {
+      display: block;
+      width: 110px;
+      height: 50px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: #d5e8d4;
+      padding: 12px 18px 22px;
+    }
+
+    .form {
+      margin-top: 16px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      background: #fff;
+      border: 1px solid #000;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 12px;
+      padding: 0 8px;
+      outline: none;
+    }
+
+    .form-row .field {
+      flex: 1;
+      height: 14px;
+      padding: 0 4px;
+      font-size: 9px;
+    }
+
+    .field:focus {
+      border-color: #0050ef;
+      box-shadow: 0 0 0 2px rgba(0, 80, 239, 0.25);
+    }
+
+    .message {
+      display: block;
+      width: 100%;
+      height: 78px;
+      border-radius: 12px;           /* kotak pesan lebih membulat */
+      padding: 8px 10px;
+      resize: none;
+      margin-bottom: 10px;
+    }
+
+    .btn-send {
+      width: 70px;
+      height: 14px;
+      background: #0050ef;
+      color: #fff;
+      border: 1px solid #0040c0;
+      font-size: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-send:hover {
+      background: #003fc0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #ffe6cc;
+      border-top: 1px solid #b0a090;
+      height: 38px;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== RESPONSIF untuk layar sangat kecil ===== */
+    @media (max-width: 380px) {
+      .columns-3 { gap: 10px; }
+      .heading { font-size: 16px; }
+      .columns-2 { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pembungkus seluruh halaman -->
+  <div class="page">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header" id="home-top">
+      <div class="logo">Logo</div>
+      <div class="nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <!-- ===== HOME / HERO ===== -->
+    <div class="section hero" id="home">
+      <div class="hero-text">Hero (Image, Slogan, Kontak, dll)</div>
+    </div>
+
+    <!-- ===== SERVICES ===== -->
+    <div class="section services" id="services">
+      <div class="title-box">Services</div>
+
+      <div class="columns-3">
+        <div class="col">
+          <div class="heading">Heading</div>
+          <div class="text">Lorem ipsum dolor<br>sit amet,<br>consectetur<br>adipisicing elit, sed</div>
+        </div>
+        <div class="col">
+          <div class="heading">Heading</div>
+          <div class="text">Lorem ipsum dolor<br>sit amet,<br>consectetur<br>adipisicing elit, sed</div>
+        </div>
+        <div class="col">
+          <div class="heading">Heading</div>
+          <div class="text">Lorem ipsum dolor<br>sit amet,<br>consectetur<br>adipisicing elit, sed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <div class="section about" id="about">
+      <div class="title-box">About</div>
+
+      <div class="about-intro">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      </div>
+
+      <div class="columns-2">
+        <div class="col">
+          <div class="heading">Heading</div>
+          <div class="text">Lorem ipsum dolor sit amet,<br>consectetur adipisicing elit, sed<br>do eiusmod tempor incididunt ut<br>labore et dolore magna aliqua.</div>
+        </div>
+        <div class="col">
+          <div class="heading">Performance</div>
+          <div class="wave-wrap">
+            <svg class="wave" viewBox="0 0 110 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2,14 C16,26 40,26 55,14 C70,2 94,2 108,14 L108,38 C94,26 70,26 55,38 C40,50 16,50 2,38 Z"
+                    fill="#fff" stroke="#222" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CONTACT ===== -->
+    <div class="section contact" id="contact">
+      <div class="title-box">Contact</div>
+
+      <div class="form">
+        <div class="form-row">
+          <input type="text" class="field" aria-label="Nama">
+          <input type="email" class="field" aria-label="Email">
+        </div>
+        <textarea class="field message" aria-label="Pesan"></textarea>
+        <button type="button" class="btn-send">Kirim</button>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">Footer</div>
+
+  </div>
+
+</body>
+</html>
